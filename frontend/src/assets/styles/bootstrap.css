@@ -1,0 +1,92 @@
+/* bootstrap customization - customize components */
+:root {
+    --bs-primary: var(--app-primary);
+    --bs-secondary: var(--app-secondary);
+}
+
+.btn-primary {
+    --bs-btn-bg: var(--app-primary);
+    --bs-btn-border-color: var(--app-primary);
+
+    --bs-btn-hover-bg: var(--app-primary-hover);
+    --bs-btn-hover-border-color: var(--app-primary-hover);
+
+    --bs-btn-color: var(--app-primary-text);
+    --bs-btn-hover-color: var(--app-primary-text-hover);
+
+    --bs-btn-active-bg: var(--app-primary-active);
+    --bs-btn-active-border-color: var(--app-primary-active);
+
+    min-width: 8rem;
+}
+
+.btn-secondary {
+    --bs-btn-bg: var(--app-secondary);
+    --bs-btn-border-color: var(--app-secondary);
+
+    --bs-btn-hover-bg: var(--app-secondary-hover);
+    --bs-btn-hover-border-color: var(--app-secondary-hover);
+
+    --bs-btn-color: var(--app-secondary-text);
+    --bs-btn-hover-color: var(--app-secondary-text-hover);
+
+    --bs-btn-active-bg: var(--app-secondary-active);
+    --bs-btn-active-border-color: var(--app-secondary-active);
+
+    min-width: 8rem;
+}
+
+.btn-danger {
+  min-width: 8rem;
+}
+
+.btn-outline-primary {
+    --bs-btn-color: var(--app-primary);
+    --bs-btn-border-color: var(--app-primary-text);
+    --bs-btn-hover-bg: var(--app-primary);
+    --bs-btn-hover-border-color: var(--app-primary);
+}
+
+.btn-outline-secondary {
+    --bs-btn-color: var(--app-secondary);
+    --bs-btn-border-color: var(--app-secondary);
+    --bs-btn-hover-bg: var(--app-secondary);
+    --bs-btn-hover-border-color: var(--app-secondary);
+    --bs-btn-active-bg: var(--app-secondary);
+    --bs-btn-active-color: var(--app-secondary-text);
+    --bs-btn-active-border-color: var(--app-secondary);
+
+    min-width: 8rem;
+}
+
+.nav-underline .nav-link {
+  color: var(--app-primary-text-dark);
+  padding: 0.5rem 1rem;
+  border-bottom: 0.125rem solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.nav-underline .nav-link:hover,
+.nav-underline .nav-link:focus {
+  color: var(--app-primary);
+  border-bottom-color: var(--app-primary-subtle);
+}
+
+.nav-underline .nav-link:focus-visible {
+  outline: 2px solid var(--app-primary);
+  outline-offset: 2px;
+}
+
+.nav-underline .nav-link.active {
+  color: var(--app-primary);
+  border-bottom-color: var(--app-primary);
+  font-weight: 600;
+}
+
+@media (max-width: 576px) {
+  .btn-primary, .btn-secondary, .btn-danger, .btn-outline-secondary {
+    min-width: 0;
+  }  
+}
+
+
