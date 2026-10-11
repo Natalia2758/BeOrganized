@@ -4,6 +4,7 @@ services:
     build: ./frontend
     ports:
       - "80:80"
+      - "443:443"
     depends_on:
       - backend
     networks:
@@ -29,7 +30,7 @@ services:
     container_name: beorganized_mysql
     
     environment:
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_DATABASE: beorganized
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}

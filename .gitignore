@@ -13,7 +13,6 @@ dist-ssr/
 coverage/
 target/
 test-results/
-playwright-report/
 __screenshots__/
 
 .env
@@ -32,7 +31,3 @@ __screenshots__/
 *.tsbuildinfo
 .eslintcache
 *.timestamp-*-*.mjs
-
-# Cypress
-/cypress/videos/
-/cypress/screenshots/

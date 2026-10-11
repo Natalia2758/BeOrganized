@@ -86,7 +86,7 @@ Navigation is handled by Vue Router with route guards for authenticated areas. P
 
 The project is designed to run with Docker Compose and consists of three containers:
 
-- **frontend**: builds the Vue app with Node.js and serves the production bundle through Nginx on port 80
+- **frontend**: builds the Vue app with Node.js and serves the production bundle through Nginx over HTTPS on port 443 (port 80 redirects to HTTPS)
 - **backend**: builds the Spring Boot application into a JAR and runs it on port 8081
 - **mysql**: runs MySQL 8.4 with persistent storage in the `mysql_data` volume
 
@@ -100,7 +100,8 @@ These are the ports used by the application:
 
 ### External app port
 
-- `80` - production frontend served by Nginx in Docker Compose
+- `443` - production frontend served by Nginx over HTTPS in Docker Compose
+- `80` - redirects to HTTPS on port 443
 
 ### Internal container network ports
 
@@ -163,7 +164,11 @@ The recommended way to run the full application is:
 docker compose up --build
 ```
 
-This starts the database, backend, and frontend together.
+This starts the database, backend, and frontend together. The application is available at `https://localhost` (or `https://<server-ip>`).
+
+### HTTPS
+
+Nginx terminates TLS. The frontend image generates a **self-signed certificate** at build time and `frontend/nginx.conf` references it. Because the certificate is self-signed, browsers show a warning on first visit; choose **Advanced → Proceed**. The certificate is valid for 365 days and is regenerated on every image rebuild.
 
 ### Local development
 
@@ -232,13 +237,14 @@ The backend test suite includes repository, service, controller, and API integra
 
 ## Recommended Flow
 
-1. Set the required environment variables.
-2. Start the application with Docker Compose.
-3. Register a user account or log in with an existing account.
-4. Create categories to organize work.
-5. Add tasks, events, notes, and reminders.
-6. Use the dashboard, schedule, and calendar views for planning.
-7. Use quick-add controls for fast item creation when available.
+1. Install Docker Desktop.
+2. Set the required environment variables.
+3. Start the application with Docker Compose.
+4. Register a user account and log in.
+5. Create categories to organize work.
+6. Add tasks, events, notes, and reminders.
+7. Use the dashboard, schedule, and calendar views for planning.
+8. Use quick-add controls for fast item creation.
 
 ----
 
